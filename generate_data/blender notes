@@ -1,0 +1,19 @@
+.glb file:
+    general workflow
+        https://blender.stackexchange.com/questions/252091/import-render-all-glbs-inside-a-folder
+    get rid of grey ball:
+        click object -> object/object properties -> visibility -> viewports -> uncheck
+        https://blender.stackexchange.com/questions/215007/get-and-set-hide-in-viewport-and-disable-in-viewport-via-python-api
+    get color:
+        change from solid to preview mode
+        https://blender.stackexchange.com/questions/17745/changing-viewport-shading-with-python
+    auto adjust zoom:
+        press `numpad .`
+        https://blender.stackexchange.com/questions/15041/zoom-in-to-all-objects-in-view-using-python
+    rotate camera:
+        https://stackoverflow.com/questions/42199890/rotate-camera-in-blender-using-python
+        https://blender.stackexchange.com/questions/117325/how-do-i-set-my-camera-rotation-with-python
+    object select
+        https://blender.stackexchange.com/questions/237163/how-can-i-get-a-list-of-all-the-mesh-objects-names-in-a-scene
+    delete objects in scene
+        https://blender.stackexchange.com/questions/252091/import-render-all-glbs-inside-a-folder
