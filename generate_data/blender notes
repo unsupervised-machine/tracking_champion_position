@@ -1,6 +1,11 @@
 .glb file:
-    general workflow
+    bpy docs:
+        https://docs.blender.org/api/current/index.html
+    general workflows:
         https://blender.stackexchange.com/questions/252091/import-render-all-glbs-inside-a-folder
+        https://stackoverflow.com/questions/14982836/rendering-and-saving-images-through-blender-python
+    use blender api to select object:
+        https://docs.blender.org/api/current/info_quickstart.html#accessing-collections
     get rid of grey ball:
         click object -> object/object properties -> visibility -> viewports -> uncheck
         https://blender.stackexchange.com/questions/215007/get-and-set-hide-in-viewport-and-disable-in-viewport-via-python-api
@@ -17,3 +22,12 @@
         https://blender.stackexchange.com/questions/237163/how-can-i-get-a-list-of-all-the-mesh-objects-names-in-a-scene
     delete objects in scene
         https://blender.stackexchange.com/questions/252091/import-render-all-glbs-inside-a-folder
+
+    camera navigation:
+        https://docs.blender.org/manual/en/2.79/editors/3dview/navigate/camera_view.html
+        move camera to active view:
+            	Ctrl-Alt-Numpad0
+        extend range of camera:
+            https://www.youtube.com/watch?v=HJh5IY6uqno&t
+        get current coordinates of camera:
+            objects -> camera -> transform
