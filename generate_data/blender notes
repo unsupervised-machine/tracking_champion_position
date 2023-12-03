@@ -15,6 +15,8 @@
     auto adjust zoom:
         press `numpad .`
         https://blender.stackexchange.com/questions/15041/zoom-in-to-all-objects-in-view-using-python
+    get names of imported objects
+        https://blender.stackexchange.com/questions/108110/getting-an-imported-objects-name
     rotate camera:
         https://stackoverflow.com/questions/42199890/rotate-camera-in-blender-using-python
         https://blender.stackexchange.com/questions/117325/how-do-i-set-my-camera-rotation-with-python
@@ -31,3 +33,5 @@
             https://www.youtube.com/watch?v=HJh5IY6uqno&t
         get current coordinates of camera:
             objects -> camera -> transform
+        using multiple cameras:
+            https://www.youtube.com/watch?v=mFSq0nUl-0Y

@@ -1,0 +1,49 @@
+
+
+Before Loop:
+    Camera:
+        - Create more camera objects
+        - Move cameras to correct positions
+        - Adjust camera angles
+            - Camera 1:
+                - Object Location: -0, -487, 487
+                - Rotation Euler's: 50, -0, 0
+                - Lens: Focal length: 45
+                - Clip Max: 1000
+            - Camera 2:
+                - Object Locations: -627, -335, 500
+                - Rotation: 60, 0, 300
+                - Lens: Focal Length 45
+                - Clip Max: 1000
+            - Camera 3:
+                - Object Locations: 419, 372, 461
+                - Rotation: 56, -0, 136
+                - Lens: Focal Length 45
+                - Clip Max: 1000
+
+    Lighting:
+        - Nothing?
+    Shading:
+        - Adjust to out of solid mode (preview okay?)
+    Delete Objects:
+        - Cube
+
+Model Loop:
+    Delete Objects:
+        - Old model ( remove by name? )
+        - Delete hierarchy
+
+    Import Objects:
+        - Utilize directory and file structure to import champion models
+
+    Hide Centriod Shapes:
+        - object -> visibility -> shown in viewport unselect
+
+    Render Loop:
+        Render Image:
+            - ouput properties ->
+            - specific size
+            - save to match directory and file structure ( champion, animation, camera )
+
+
+
