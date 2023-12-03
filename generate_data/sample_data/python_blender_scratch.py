@@ -22,7 +22,7 @@ def deleteAllObjects():
     bpy.ops.object.delete()  # Deletes all selected objects in the scene
 
 # deleteAllObjects()
-
+# bpy.ops.import_scene.gltf("/home/taran/Documents/test_projects/tracking_champion_position/generate_data/sample_data/ahri_files/ahri.glb")
 filepath = "generate_data/sample_data/aatrox_files/aatrox.glb"
 bpy.ops.import_scene.gltf(filepath=filepath)
 
@@ -104,3 +104,121 @@ bpy.context.scene.render.filepath = "/home/taran/Documents/test_projects/trackin
 bpy.ops.wm.redraw_timer(type='DRAW_WIN_SWAP', iterations=1)
 # Render the scene
 bpy.ops.render.render(write_still=True)
+
+import bpy
+
+# Initial
+old_objects = ["Cube"]
+
+# start loop
+# Import
+bpy.ops.import_scene.gltf(filepath="/home/taran/Documents/test_projects/tracking_champion_position/generate_data/sample_data/ahri_files/ahri.glb")
+
+# Imported objects are selected
+new_objects = [o.name for o in bpy.context.selected_objects]
+
+# Drop old objects
+for o in old_objects:
+    bpy.data.objects.remove(bpy.data.objects[o], do_unlink=True)
+
+# Render Image
+# do this later
+bpy.data.objects["da421925-ca68-43db-973c-bd07a5570295"].hide_viewport = True
+
+# bpy.types.RenderSettings.views_format('MULTIVIEW')
+# bpy.types.RenderSettings.use_multiview()
+# Not quite working but close
+# It works now woohoo!!!
+import bpy
+bpy.context.scene.render.filepath = '/home/taran/Documents/test_projects/tracking_champion_position/generate_data/sample_data/ahri_files/pls_empty/ahri.jpg'
+bpy.types.RenderSettings.views_format = 'MULTIVIEW'
+bpy.context.scene.render.image_settings.file_format = "JPEG"
+bpy.ops.render.render(write_still=True)
+
+
+# Set New objs to old
+old_objects = new_objects
+
+# end of loop ( import more new objects )
+
+
+# for object in bpy.context.scene.objects:
+#    print(object.name)
+
+
+import bpy
+
+#for object in bpy.context.scene.objects:
+#    print(object.name)
+
+old_objects = ["341b811b-e1d7-4d30-855b-2facd3addbe9"]
+
+# Import
+bpy.ops.import_scene.gltf(filepath="/home/taran/Documents/test_projects/tracking_champion_position/generate_data/sample_data/ahri_files/ahri.glb")
+
+# Imported objects are selected
+new_objects = [o.name for o in bpy.context.selected_objects]
+
+
+# Drop old objects
+for o in old_objects:
+    bpy.data.objects.remove(bpy.data.objects[o], do_unlink=True)
+
+# Render Image
+
+bpy.data.objects["da421925-ca68-43db-973c-bd07a5570295"].hide_viewport = True
+bpy.context.scene.render.filepath = '/home/taran/Documents/test_projects/tracking_champion_position/generate_data/sample_data/ahri_files/pls_empty/ahri.jpg'
+bpy.types.RenderSettings.views_format = 'MULTIVIEW'
+bpy.context.scene.render.image_settings.file_format = "JPEG"
+bpy.ops.render.render(write_still=True)
+
+
+# Set New objs to old
+old_objects = new_objects
+
+
+
+
+# DONE?
+import bpy
+
+for object in bpy.context.scene.objects:
+    print(object.name)
+    print(object.type)
+
+old_objects = ["341b811b-e1d7-4d30-855b-2facd3addbe9"]
+#old_objects = ["341b811b-e1d7-4d30-855b-2facd3addbe9.001"]
+
+
+# Import
+bpy.ops.import_scene.gltf(filepath="/home/taran/Documents/test_projects/tracking_champion_position/generate_data/sample_data/ahri_files/ahri.glb")
+
+# Imported objects are selected
+new_objects = [o.name for o in bpy.context.selected_objects]
+
+
+# Drop old objects
+for o in old_objects:
+    bpy.data.objects.remove(bpy.data.objects[o], do_unlink=True)
+
+# Render Image
+for object in bpy.context.scene.objects:
+    if object.type == "ARMATURE":
+        # hide_this
+        bpy.data.objects[object.name].hide_viewport = True
+
+#bpy.data.objects["da421925-ca68-43db-973c-bd07a5570295"].hide_viewport = True
+bpy.context.scene.render.filepath = '/home/taran/Documents/test_projects/tracking_champion_position/generate_data/sample_data/ahri_files/pls_empty/ahri.jpg'
+bpy.types.RenderSettings.views_format = 'MULTIVIEW'
+bpy.context.scene.render.image_settings.file_format = "JPEG"
+bpy.ops.render.render(write_still=True)
+
+
+# Set New objs to old
+old_objects = new_objects
+
+
+
+
+
+

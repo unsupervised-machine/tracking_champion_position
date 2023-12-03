@@ -25,13 +25,27 @@
     delete objects in scene
         https://blender.stackexchange.com/questions/252091/import-render-all-glbs-inside-a-folder
 
-    camera navigation:
-        https://docs.blender.org/manual/en/2.79/editors/3dview/navigate/camera_view.html
-        move camera to active view:
-            	Ctrl-Alt-Numpad0
-        extend range of camera:
-            https://www.youtube.com/watch?v=HJh5IY6uqno&t
-        get current coordinates of camera:
-            objects -> camera -> transform
-        using multiple cameras:
-            https://www.youtube.com/watch?v=mFSq0nUl-0Y
+camera navigation:
+    https://docs.blender.org/manual/en/2.79/editors/3dview/navigate/camera_view.html
+    move camera to active view:
+            Ctrl-Alt-Numpad0
+    extend range of camera:
+        https://www.youtube.com/watch?v=HJh5IY6uqno&t
+    get current coordinates of camera:
+        objects -> camera -> transform
+    using multiple cameras:
+        https://www.youtube.com/watch?v=mFSq0nUl-0Y
+
+rendering:
+    https://github.com/lapineige/Blender_add-ons/blob/master/Multi-Camera-Render/multi_camera_render_v2.py
+
+Scripting:
+    - https://docs.blender.org/api/blender_python_api_current/info_tips_and_tricks.html
+    Learning New Functionality:
+        - To find the path from an ID datablock to its setting isn’t always so simple since it may be nested away. To get this quickly you can right click on the setting and select select Copy Data Path, if this can’t be generated, only the property name is copied.
+    Running Scripts:
+        - On startup Blender scans the scripts/startup/ directory for Python modules and imports them. The exact location of this directory depends on your installation.
+        - When writing Python scripts, it’s useful to have a terminal open, this is not the built-in Python console but a terminal application which is used to start Blender.
+        - For Linux and OSX users this means starting the terminal first, then running Blender from within it. On Windows the terminal can be enabled from the help menu.
+        - Blenders text editor is fine for small changes and writing tests but its not full featured, for larger projects you’ll probably want to use a standalone editor or Python IDE
+        - For scripts that are not interactive it can end up being more efficient not to use Blenders interface at all and instead execute the script on the command line.

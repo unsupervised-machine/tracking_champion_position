@@ -47,6 +47,7 @@ Model Loop:
     Hide Centroid Shapes:
         - in the new import select sub-object that starts with 2 letters followed by string of numbers
         - object properties -> visibility -> deselect viewports
+        - bpy.data.objects["da421925-ca68-43db-973c-bd07a5570295"].hide_viewport = True
 
     Render Loop:
         Render Image:
