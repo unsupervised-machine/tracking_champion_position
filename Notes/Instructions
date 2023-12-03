@@ -1,6 +1,11 @@
 
 
 Before Loop:
+    Startup:
+        - Open blender
+        - Load scene from cameras file
+        - Run Script
+
     Camera:
         - Create more camera objects
         - Move cameras to correct positions
@@ -20,6 +25,9 @@ Before Loop:
                 - Rotation: 56, -0, 136
                 - Lens: Focal Length 45
                 - Clip Max: 1000
+        - Prep Render Format
+            - output properties -> stereoscopy -> multi view -> name 3 camera suffixes -> rename cameras with suffixes at end
+            - rendering -> unselect show stereo
 
     Lighting:
         - Nothing?
@@ -29,21 +37,26 @@ Before Loop:
         - Cube
 
 Model Loop:
-    Delete Objects:
-        - Old model ( remove by name? )
-        - Delete hierarchy
-
     Import Objects:
         - Utilize directory and file structure to import champion models
 
-    Hide Centriod Shapes:
-        - object -> visibility -> shown in viewport unselect
+    Delete Previous Model:
+        - keep track of all objects in scene
+        - Delete hierarchy of object that is not a camera but is also not the new import
+
+    Hide Centroid Shapes:
+        - in the new import select sub-object that starts with 2 letters followed by string of numbers
+        - object properties -> visibility -> deselect viewports
 
     Render Loop:
         Render Image:
-            - ouput properties ->
-            - specific size
-            - save to match directory and file structure ( champion, animation, camera )
+            - render -> render image -> deselect stereo view
+            - image -> save as -> file format -> png or jpg -> folder path + file name
+        file/folder name considerations:
+            - champion
+            - skin
+            - animation
+            - compression amount
 
 
 
