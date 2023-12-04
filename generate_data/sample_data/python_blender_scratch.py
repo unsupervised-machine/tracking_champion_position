@@ -179,25 +179,30 @@ old_objects = new_objects
 
 
 
-# DONE?
+
 import bpy
 
 for object in bpy.context.scene.objects:
     print(object.name)
     print(object.type)
 
-old_objects = ["341b811b-e1d7-4d30-855b-2facd3addbe9"]
+old_objects = ["58be6483-0e4e-49ca-8a8a-d67142f4f96d"]
 #old_objects = ["341b811b-e1d7-4d30-855b-2facd3addbe9.001"]
 
 
 # Import
 bpy.ops.import_scene.gltf(filepath="/home/taran/Documents/test_projects/tracking_champion_position/generate_data/sample_data/ahri_files/ahri.glb")
 
+
+# Drop old objects ... try doing this before import?
+for o in old_objects:
+    bpy.data.objects.remove(bpy.data.objects[o], do_unlink=True)
+
 # Imported objects are selected
 new_objects = [o.name for o in bpy.context.selected_objects]
 
 
-# Drop old objects
+# Drop old objects ... try doing this before import?
 for o in old_objects:
     bpy.data.objects.remove(bpy.data.objects[o], do_unlink=True)
 
@@ -220,5 +225,53 @@ old_objects = new_objects
 
 
 
+
+
+
+
+# Done ?
+import bpy
+
+deleteListObjects = [
+    # 'MESH',
+    # 'CURVE',
+    # 'SURFACE',
+    # 'META',
+    # 'FONT',
+    # 'HAIR',
+    # 'POINTCLOUD',
+    # 'VOLUME',
+    # 'GPENCIL',
+    # 'ARMATURE',
+    # 'LATTICE',
+    # 'EMPTY',
+    # 'LIGHT',
+    # 'LIGHT_PROBE',
+    # 'SPEAKER',
+    'CAMERA'
+    ]
+
+for o in bpy.context.scene.objects:
+    for i in deleteListObjects:
+        if o.type == i:
+            o.select_set(False)
+        else:
+            o.select_set(True)
+
+# delete existing objects
+bpy.ops.object.delete()
+
+bpy.ops.import_scene.gltf(
+    filepath="/home/taran/Documents/test_projects/tracking_champion_position/generate_data/sample_data/ahri_files/ahri.glb")
+
+for object in bpy.context.scene.objects:
+    if object.type == "ARMATURE":
+        # hide_this
+        bpy.data.objects[object.name].hide_viewport = True
+
+bpy.context.scene.render.filepath = '/home/taran/Documents/test_projects/tracking_champion_position/generate_data/sample_data/ahri_files/pls_empty/ahri.jpg'
+bpy.types.RenderSettings.views_format = 'MULTIVIEW'
+bpy.context.scene.render.image_settings.file_format = "JPEG"
+bpy.ops.render.render(write_still=True)
 
 
