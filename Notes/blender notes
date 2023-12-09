@@ -42,6 +42,11 @@ camera navigation:
 rendering:
     https://github.com/lapineige/Blender_add-ons/blob/master/Multi-Camera-Render/multi_camera_render_v2.py
 
+Animations:
+    animation stuck?
+        https://blender.stackexchange.com/questions/50750/cant-change-animation-action-from-move-to-hit
+
+
 Scripting:
     - https://docs.blender.org/api/blender_python_api_current/info_tips_and_tricks.html
     Learning New Functionality:
