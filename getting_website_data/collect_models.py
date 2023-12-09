@@ -4,10 +4,6 @@ import requests
 import yaml
 from pathlib import Path
 def get_cloudfront_url():
-    # Get Cloud Front Url
-    # Used to get champion models like this:
-    # https://d39h8efa1lafbi.cloudfront.net/export/22/skin65.glb.gz
-    # where 22 is the champion ID and 65 is the skin ID (not the offset)
     api_url = "https://www.modelviewer.lol/en-US/model-viewer"
     response = requests.get(api_url)
     response_text = response.text
@@ -22,13 +18,9 @@ def get_cloudfront_url():
     pattern = re.compile(r'https://([^/]+)\.cloudfront\.net/export')
     match = re.search(pattern, response_text)
     matched_string = match.group()
-    # This is the cloudfront url
-    # print(matched_string)
-    # https://d39h8efa1lafbi.cloudfront.net/export
     return matched_string
 
 
-# Get champion IDs
 def create_champions_data():
     api_url = "https://www.modelviewer.lol/api/champions?language=default"
     response = requests.get(api_url)
@@ -53,56 +45,31 @@ def add_skin_data(champions_data):
         response = requests.get(api_url)
         champion_skin_ids = response.json()
         d['skins_data'] = champion_skin_ids
-    return None # we are modifying champions_data
+    return None  # we are modifying champions_data
+
 
 def save_champion_skin_mapping(champions_data, file_path='getting_website_data/champion_skin_mapping.yaml'):
     with open(file_path, 'w') as yaml_file:
         yaml.dump(champions_data, yaml_file)
     return None  # we saved the file
 
-# save_champion_skin_data(champion_ids)
-# with open('getting_website_data/champions_data.yaml', 'r') as yaml_file:
-#     loaded_data = yaml.safe_load(yaml_file)
+
 def load_yaml_file(file_path):
     with open(file_path, 'r') as yaml_file:
         loaded_data = yaml.safe_load(yaml_file)
     return loaded_data
 
 
-
-# The text that you found from Step 4 is the full cloudfront url!
-# Now create the URLs to specific blender models like we did above.
-# For example, https://d39h8efa1lafbi.cloudfront.net/export/22/skin65.glb.gz
-# where 22 is the champion ID and 65 is the skin ID (not the offset)
-
-#
-# https://d39h8efa1lafbi.cloudfront.net/export/1/skin0.glb.gz Base Annie Skin...
-# https://d39h8efa1lafbi.cloudfront.net/export/2/skin0.glb.gz Base Olaf Skin
-# https://d39h8efa1lafbi.cloudfront.net/export/92/skin0.glb.gz Base Riven Skin
-# https://d39h8efa1lafbi.cloudfront.net/export/38/skin0.glb.gz
-# https://d39h8efa1lafbi.cloudfront.net/export/10/skin0.glb.gz
-# champion_id = id + 000
-# riven_id = 92000 = 92 + 000  -> base riven skin
-# ashe_id = 22000 = 22 + 000 -> base ashe skin
-# ashe_id = 22065 = 22 + 065 -> crystal ashe
-
-# https://d39h8efa1lafbi.cloudfront.net/export
 def get_download_url(cloudfront_url
                    , champion_skin_id=103000
                    ):
     champion_id = str(champion_skin_id)[:-3]
-    # print(champion_id)
-    # print(type(champion_id))
     skin_id = str(champion_skin_id)[-3:].lstrip('0')
     if not skin_id:
         skin_id = '0'
-    # api_url = f"https://{cloudfront_url}.cloudfront.net/export/{champion_id}/skin{skin_id}.glb.gz"
     api_url = f"{cloudfront_url}/{champion_id}/skin{skin_id}.glb.gz"
 
     return api_url
-
-# get_download_url(cloudfront_url)
-
 
 
 def get_many_models(cloudfront_url
@@ -133,51 +100,20 @@ def get_many_models(cloudfront_url
             skin_name = champion_name
             output_folder = save_files_directory / champion_name / skin_name
             output_folder.mkdir(parents=True, exist_ok=True)
-            # print(output_folder)
-            # print(champion_id)
-            # print(skin_name)
-            # print(cloudfront_url)
-            print(champion_id)
-            print(type(champion_id))
             api_url = get_download_url(cloudfront_url
                                        , champion_skin_id=champion_id
                                        )
             filename = output_folder / (skin_name + ".glb.gz")
-            # filename = output_folder / (skin_name + ".glb")
             if not replace_existing and filename.exists():
                 print(f"file already exists and replace_existing set to False, skipping {filename}")
                 continue
 
             print(f"Download url {api_url} into {filename}")
-            # response = requests.get(api_url)
-            # response.encoding = 'gzip'
             response = requests.get(api_url, stream=True)
-            responses.append(response)
 
             with open(filename, 'wb') as file:
                 for chunk in response.raw.stream(1024, decode_content=False):
                     if chunk:
                         file.write(chunk)
-                # file.write(response.content)
             print(f"Downloaded into {filename}")
-    return responses
-
-
-# Testing 09122023
-cloudfront_url = get_cloudfront_url()
-small_champ_ids = champion_ids[0:5]
-# save_champion_skin_mapping(small_champ_ids, file_path='getting_website_data/champion_skin_mapping_small.yaml')
-# get_many_models(cloudfront_url
-#                 , run_type='all_base'  # all_skins/all_base/select
-#                 , selection_list=None  # used when run_type='select', list of tuples (champion, skin)
-#                 , replace_existing=True  # 'True/False'
-#                 , mapping_file='getting_website_data/champion_skin_mapping_small.yaml'
-#                 , save_files_directory=Path('getting_website_data/model_files')
-#                 )
-responses = get_many_models(cloudfront_url
-                , run_type='all_base'  # all_skins/all_base/select
-                , selection_list=None  # used when run_type='select', list of tuples (champion, skin)
-                , replace_existing=True  # 'True/False'
-                , mapping_file='getting_website_data/champion_skin_mapping_small.yaml'
-                , save_files_directory=Path('getting_website_data/model_files')
-                )
+    return None
