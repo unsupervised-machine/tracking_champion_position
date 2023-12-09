@@ -149,10 +149,10 @@ def get_many_models(cloudfront_url
                 continue
 
             print(f"Download url {api_url} into {filename}")
-            response = requests.get(api_url)
+            # response = requests.get(api_url)
             # response.encoding = 'gzip'
-            # responses.append(response)
             response = requests.get(api_url, stream=True)
+            responses.append(response)
 
             with open(filename, 'wb') as file:
                 for chunk in response.raw.stream(1024, decode_content=False):
