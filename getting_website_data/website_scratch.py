@@ -142,22 +142,23 @@ def get_many_models(cloudfront_url
             api_url = get_download_url(cloudfront_url
                                        , champion_skin_id=champion_id
                                        )
-            # filename = output_folder / (skin_name + ".glb.gz")
-            filename = output_folder / (skin_name + ".glb")
+            filename = output_folder / (skin_name + ".glb.gz")
+            # filename = output_folder / (skin_name + ".glb")
             if not replace_existing and filename.exists():
                 print(f"file already exists and replace_existing set to False, skipping {filename}")
                 continue
 
             print(f"Download url {api_url} into {filename}")
             response = requests.get(api_url)
-            responses.append(response)
-            # response = requests.get(api_url, stream=True)
+            # response.encoding = 'gzip'
+            # responses.append(response)
+            response = requests.get(api_url, stream=True)
 
             with open(filename, 'wb') as file:
-                # for chunk in response.iter_content(1024):
-                #     if chunk:
-                #         file.write(chunk)
-                file.write(response.content)
+                for chunk in response.raw.stream(1024, decode_content=False):
+                    if chunk:
+                        file.write(chunk)
+                # file.write(response.content)
             print(f"Downloaded into {filename}")
     return responses
 
