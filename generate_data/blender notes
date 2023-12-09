@@ -24,6 +24,9 @@
         https://blender.stackexchange.com/questions/237163/how-can-i-get-a-list-of-all-the-mesh-objects-names-in-a-scene
     delete objects in scene
         https://blender.stackexchange.com/questions/252091/import-render-all-glbs-inside-a-folder
+    disable backface culling:
+        https://blender.stackexchange.com/questions/98374/how-to-make-camera-look-through-objects-from-only-one-side
+
 
 camera navigation:
     https://docs.blender.org/manual/en/2.79/editors/3dview/navigate/camera_view.html

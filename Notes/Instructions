@@ -48,7 +48,8 @@ Model Loop:
         - in the new import select sub-object that starts with 2 letters followed by string of numbers
         - object properties -> visibility -> deselect viewports
         - bpy.data.objects["da421925-ca68-43db-973c-bd07a5570295"].hide_viewport = True
-
+    Disable Backface Bulling:
+        https://blender.stackexchange.com/questions/98374/how-to-make-camera-look-through-objects-from-only-one-side
     Render Loop:
         Render Image:
             - render -> render image -> deselect stereo view
