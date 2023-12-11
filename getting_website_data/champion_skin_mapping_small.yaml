@@ -1,10 +1,29 @@
 - id: 266000
   name: Aatrox
+  skins:
+    - id: 0
+      name: Aatrox
+    - id: 1
+      name: Justicar Aatrox
 - id: 103000
   name: Ahri
+  skins:
+    - id: 0
+      name: Ahri
+    - id: 1
+      name: Dynasty Ahri
 - id: 84000
   name: Akali
+  skins:
+    - id: 0
+      name: Akalis
 - id: 166000
   name: Akshan
+  skins:
+    - id: 0
+      name: Akshan
 - id: 12000
   name: Alistar
+  skins:
+    - id: 0
+      name: Alistar
