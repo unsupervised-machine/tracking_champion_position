@@ -57,3 +57,5 @@ Scripting:
         - For Linux and OSX users this means starting the terminal first, then running Blender from within it. On Windows the terminal can be enabled from the help menu.
         - Blenders text editor is fine for small changes and writing tests but its not full featured, for larger projects you’ll probably want to use a standalone editor or Python IDE
         - For scripts that are not interactive it can end up being more efficient not to use Blenders interface at all and instead execute the script on the command line.
+        - Running scripts through python / terminal:
+            https://blender.stackexchange.com/questions/1365/how-can-i-run-blender-from-command-line-or-a-python-script-without-opening-a-gui
