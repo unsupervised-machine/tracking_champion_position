@@ -275,3 +275,11 @@ bpy.context.scene.render.image_settings.file_format = "JPEG"
 bpy.ops.render.render(write_still=True)
 
 
+
+
+# Opening blender from python
+import subprocess
+blender_path = '/snap/bin/blender'
+blend_file = '/Documents/test_projects/tracking_champion_position/generate_data/sample_data/cameras/cameras_positioned_v3.blend'
+command = [blender_path, '--background', '--python', 'open_blend_file.py', '--', blend_file]
+subprocess.run(command)

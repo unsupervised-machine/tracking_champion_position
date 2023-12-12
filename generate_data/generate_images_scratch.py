@@ -25,7 +25,7 @@ for champion in champion_skin_mapping:
         # print(output_file)
         # output_file.touch()
         if not zipped_file.is_file():
-            print(f"output file {output_file} does not exist")
+            print(f"input file {zipped_file} does not exist")
             continue
 
         with gzip.open(zipped_file, 'rb') as f_in:
