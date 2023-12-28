@@ -1,5 +1,6 @@
 import generate_images_functions
 from pathlib import Path
+import bpy
 
 def main():
     # Base directory for the league_object_detection_tracking folder
@@ -17,13 +18,17 @@ def main():
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # Set a limit for the number of models to process
-    models_limit = 18
+    # models_limit = 18
+    models_limit = 1
     # Counter for models proccessed in loop
     models_processed = 0
     # Set a limit for the number of Tracks to process
-    track_limit = 2
+    # track_limit = 10
+    track_limit = 20
     # List of champions to process, leave empty to process all champions
-    champions_to_process = ['Ahri']  # Add champion names like 'Ahri', 'Aatrox', etc.
+    # champions_to_process = ['Akshan']  # Add champion names like 'Ahri', 'Aatrox', etc.
+    champions_to_process = []  # Add champion names like 'Ahri', 'Aatrox', etc.
+
 
     # Loop through each champion directory in the models directory
     for champion_dir in models_directory.iterdir():
