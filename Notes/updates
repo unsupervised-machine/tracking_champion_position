@@ -1,3 +1,0 @@
-2023-12-02:
-    Write script to create labeled data using https://www.modelviewer.lol/model-viewer?id=266000
-    Write script to augment these images to help generalize the data, follow process described in 1905.13546.pdf
